@@ -1,24 +1,34 @@
-let songNames = []
+var songName = [];
+var songArtist = [];
+var songImage = [];
+var songLength = [];
+var songLink = [];
+
+function displaySongInfo(item1,item2,item3){
+    let item = $(item2).val()
+    item1.push(item);
+    item1.forEach(function(newItem){
+        $(item3).append("<div>" + newItem + "</div>")
+    })
+
+};
 
 $("#add").click(function(){
-    let song = $("#song").val();
-    songNames.push(song);
-    $("#songs").append(song)
-})
+    empty();
+    displaySongInfo(songName,"#song","#songs");
+    displaySongInfo(songArtist,"#artist","#artists");
+    displaySongInfo(songImage,"#image","#images");
+    displaySongInfo(songLength,"#length","#lengths");
+    displaySongInfo(songLink,"#link","#links");
+});
 
-let artists = []
-$("#add").click(function(){
-    let artist = $("#artist").val();
-    artists.push(artist);
-    $("#artists").append(artist);
-})
-
-let songLength = []
-$("#add").click(function(){
-    let length = $("#length").val();
-    songLength.push(length);
-    $("#lengths").append(length);
-})
+function empty(){
+  $("#songs").empty();
+  $("#images").empty();
+  $("#artists").empty();
+  $("#lengths").empty();
+  $("#links").empty();  
+}
 
 
 
